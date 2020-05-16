@@ -5,7 +5,7 @@ import os
 import pathlib
 from PIL import Image
 import tensorflow as tf
-tf.enable_eager_execution()
+#tf.enable_eager_execution()
 import matplotlib.pyplot as plt
 from tensorflow.python.keras import backend as K
 #import segmentation_models
