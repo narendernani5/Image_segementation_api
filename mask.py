@@ -198,6 +198,8 @@ def upload():
 @app.route("/Predict", methods=["POST"])
 def Predict():
 
+    filename = request.form['image']
+
     # open and process image
     target = os.path.join(APP_ROOT, 'static/images')
     destination = "/".join([target, filename])
@@ -206,15 +208,12 @@ def Predict():
     
     img = Image.open(destination)
 
-    if mode == 'Predict':
-        image1, pred_mask = predict(file_path)
-        image = tf.keras.preprocessing.image.array_to_img(image1)
-        mask = tf.keras.preprocessing.image.array_to_img(pred_mask)
-        pred = Image.blend(image, mask, alpha=.6)
-        final = changeImageSize(img.size[0], img.size[1], pred)
-    else:
-        return render_template("error.html", message="Failed to preprocess the image"), 400
-
+    image1, pred_mask = predict(file_path)
+    image = tf.keras.preprocessing.image.array_to_img(image1)
+    mask = tf.keras.preprocessing.image.array_to_img(pred_mask)
+    pred = Image.blend(image, mask, alpha=.6)
+    final = changeImageSize(img.size[0], img.size[1], pred)
+    
     # save and return image
     destination = "/".join([target, 'temp1.png'])
     if os.path.isfile(destination):
