@@ -1,11 +1,11 @@
 # web-app for API image manipulation
 from flask import Flask, request, render_template, send_from_directory
-import tensorflow.contrib.eager as tfe
+#import tensorflow.contrib.eager as tfe
 import os
 import pathlib
 from PIL import Image
 import tensorflow as tf
-#tf.enable_eager_execution()
+#tf.compat.v1.enable_eager_execution()
 import matplotlib.pyplot as plt
 from tensorflow.python.keras import backend as K
 #import segmentation_models
