@@ -9,7 +9,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from tensorflow.python.keras import backend as K
 #import segmentation_models
-import segmentation_models as sm
+#import segmentation_models as sm
 from tensorflow.python.keras.callbacks import TensorBoard
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.models import Model, load_model
@@ -117,7 +117,7 @@ def dice_coef(y_true, y_pred, smooth=K.epsilon()):
   y_pred_f = K.flatten(y_pred)
   intersection = K.sum(y_true_f * y_pred_f)
   return (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
-dependencies = {'dice_coef':dice_coef, 'dice_loss':sm.losses.dice_loss }
+dependencies = {'dice_coef':dice_coef}
 
 # get Predictions
 def predict(file_path):
