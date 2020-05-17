@@ -9,7 +9,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from tensorflow.python.keras import backend as K
 #import segmentation_models
-#import segmentation_models as sm
+import segmentation_models as sm
 from tensorflow.python.keras.callbacks import TensorBoard
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.models import Model, load_model
