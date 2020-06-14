@@ -5,7 +5,7 @@ import os
 import pathlib
 from PIL import Image
 import tensorflow as tf
-#tf.compat.v1.enable_eager_execution()
+tf.compat.v1.enable_eager_execution()
 import matplotlib.pyplot as plt
 from tensorflow.python.keras import backend as K
 #import segmentation_models
@@ -117,7 +117,7 @@ def dice_coef(y_true, y_pred, smooth=K.epsilon()):
   y_pred_f = K.flatten(y_pred)
   intersection = K.sum(y_true_f * y_pred_f)
   return (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
-dependencies = {'dice_coef':dice_coef}
+dependencies = {'dice_coef':dice_coef, 'dice_loss':sm.losses.dice_loss }
 
 # get Predictions
 def predict(file_path):
@@ -131,8 +131,7 @@ def predict(file_path):
   model.compile(optimizer='adam', loss=sm.losses.dice_loss, metrics=[dice_coef])
   te = test1.batch(1)
   model.predict(te)
-  model.load_weights('model/car_damage_unet++.h5')
-  #model = tf.keras.models.load_model('C:/Users/Narender Nani/Documents/Python Scripts/upload_file_python-src/car_damage_final_Nested_unet1', custom_objects=dependencies)
+  model.load_weights('model/car_damage_unet++1.h5')
   for image in test1.take(1):
     pred_mask = model.predict(image[tf.newaxis, ...])[0]
   return image, pred_mask

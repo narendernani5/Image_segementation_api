@@ -50,9 +50,9 @@
 		 </form>
         </div>  
        <div class="row marketing">
-            <div class="col-lg-10">
-                <h4>Below are the Sample images on which the model has been trained : upload similar images for good results</h4>
-            </div>
+            <div class="col-lg-20">
+                <h4>Make sure you crop images for better results: Below are the Sample predictions before and after crop</h4>
+	    </div>
         </div>
 	<head>
 	<style>
@@ -62,7 +62,7 @@
 
         .column {
           float: left;
-          width: 33.33%;
+          width: 25%;
           padding: 5px;
         }
 
@@ -75,19 +75,27 @@
 	</style>
 	</head>
         <div class="row">
-          <div class="column">
-            <img src="static/images/image61.png" alt="Snow" height="250" width="300">
+	  <div class="column">
+            <img src="static/images/images.jpg" alt="Snow" height="150" width="250">
+	 	<h4>Input_image</h4>
           </div>
           <div class="column">
-            <img src="static/images/image62.jpg" alt="Forest" height="250" width="300">
+            <img src="static/images/mask.png" alt="Forest" height="150" width="250">
+		<h4>Prediction</h4>
           </div>
           <div class="column">
-            <img src="static/images/image80.jpg" alt="Mountains" height="250" width="300">
+            <img src="static/images/images_crop.jpg" alt="Mountains" height="150" width="250">
+		<h4>Input_image</h4>
           </div>
+	  <div class="column">
+            <img src="static/images/mask_crop.png" alt="Forest" height="150" width="250">
+	    	<h4>Prediction</h4>
+          </div>	
         </div>
 
         <footer class="footer">
             <p>&copy; narender reddy 2020. Using tensorflow, Python and Flask.</p>
+	    <p>Thanks "gxercavins" for the web application.<p>
         </footer>
  
     </div>
